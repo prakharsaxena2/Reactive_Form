@@ -1,0 +1,65 @@
+<div><h1>Registration Form</h1></div>
+
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit(employeeForm)" class="form-horizontal">
+  <div class="form-group main">
+    <label class="header" for="fullName">Full Name</label><br>
+    <input id="fullName" formControlName="fullName" type="text" class="form-control"><br>
+
+    <div class="form-group" *ngIf="employeeForm.get('fullName').errors.required">
+      Number must be filled.
+    </div>
+    <br>
+  
+
+    <label class="header">Email</label><br>
+    <input  formControlName="email" type="email" class="form-control">
+    <!-- <div class="form-group" *ngIf="employeeForm.get('email').errors.pattern">
+      Number must be at least 6 characters long.
+    </div>  -->
+    <br>
+    <br>
+    
+    <label class="header" >Mobile Number</label><br>
+    <input type="text" formControlName="mobileNo"><br>
+    <div class="form-group" *ngIf=" employeeForm.get('mobileNo').errors.maxlength">
+      Number must be 10
+    </div>
+    <br>
+  
+    <div formGroupName="address">
+      <label class="header">Address</label><br><br>
+      <label class="header">Line1</label><br>
+
+      <input type="text" formControlName="line1"><br><br>
+      <label class="header">Line2</label><br>
+
+      <input type="text" formControlName="line1"><br><br>
+      <label class="header">District</label><br>
+      <input type="text" formControlName="district"><br><br>
+
+      <label class="header">City</label><br>
+      <input type="text" formControlName="city"><br><br>
+      <label class="header">Pin Code</label><br>
+      <input type="text" formControlName="pincode"><br><br>
+      <div class="form-group" *ngIf="employeeForm.get('address.pincode').errors.maxlength">
+        Pincode must be 6
+      </div>
+      <button class="btn" type="submit" >Save</button><br>
+    </div>
+
+
+    <!-- 
+    <div formGroupName="skills">
+        <label>Skills</label><br>
+    <input type="text" id="skillName" formControlName="skillName"><br><br>
+    <input type="text"  placeholder="Experience in Year"  formControlName="experienceInYears" ><br>
+    <label>Proficiency</label><br>
+    <input type="radio" value="beginner" formControlName="proficiency">Beginner
+    <input type="radio" value="intermediate" formControlName="proficiency">Intermediate
+    <input type="radio" value="advanced" formControlName="proficiency">Advanced
+    </div> -->
+
+
+  </div>
+
+</form>
